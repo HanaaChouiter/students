@@ -13,7 +13,6 @@ const Form = () => {
       name: name,
     }
 
-   
     fetch('http://localhost:5000/students', {
       method: "post",
       headers: {

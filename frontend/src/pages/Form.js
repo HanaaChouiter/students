@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Form = () => {
     const [name, setName] = useState("")
@@ -13,7 +14,6 @@ const Form = () => {
     }
 
    
-
     fetch('http://localhost:5000/students', {
       method: "post",
       headers: {
@@ -27,7 +27,7 @@ const Form = () => {
   }
 
   return (
-      <>
+      <div className="container mt-3">
        {iSValid ?
        (
         <>
@@ -36,13 +36,18 @@ const Form = () => {
         </>
       ):
     <form onSubmit={handleSubmit}>
-      <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-     
-      <button type="submit">Creer student</button>
+      <div className="row">
+        <div className="col-3">
+          <input className="form-control" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        </div>
+        <div className="col-3">
+          <button class="btn btn-primary" type="submit">Créer student</button>
+        </div>
+      </div>
     </form>
   
     }
-  </>
+  </div>
   );
 };
 
